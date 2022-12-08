@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="tank"   src="image/Up.PNG" alt=""><br><br>
+<button onclick="moveLeft()">left</button>
+<button onclick="moveRight()">right</button>
+<button onclick="moveUp()">up</button>
+<button onclick="moveDown()">down</button>
+
+<script>
+
+        let tank = document.getElementById('tank');
+        function init(){
+            tank.style.position = 'relative';
+            tank.style.left = 0 + 'px';
+            tank.style.top = 0 + 'px';
+    }
+    init();
+        function moveRight(){
+            tank.src = 'image/Right.PNG'
+            console.log("src --->", tank.src)
+            tank.style.left = parseInt(tank.style.left) + 20 + 'px';
+
+        }
+        function moveLeft(){
+            tank.src = 'image/Left.PNG'
+            tank.style.left = parseInt(tank.style.left) - 20 + 'px';
+        }
+        function moveUp(){
+            tank.src = 'image/Up.PNG'
+            tank.style.top = parseInt(tank.style.top) - 20 + 'px';
+        }
+        function moveDown(){
+            tank.src = 'image/Down.PNG'
+            tank.style.top = parseInt(tank.style.top) + 20 + 'px';
+        }
+        function selecionKeyBoard(event){
+            switch (event.keyCode) {
+                case 38:
+                    moveUp();
+                    break;
+
+                case 37:
+                    moveLeft();
+                    break;
+
+                case 39:
+                    moveRight();
+                    break;
+                case 40:
+                    moveDown();
+                    break;
+
+            }
+        }
+ addEventListener('keydown',selecionKeyBoard)
+</script>
+</body>
+</html>
